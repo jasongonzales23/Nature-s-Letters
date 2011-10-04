@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- end CSS-->
+
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+
+  <div id="container">
+    <header>
+
+    </header>
+    <div id="main" role="main">
+        <div id="step-1" class="active step">
+            <h2 class="stepLabel"><span class="current">1</span><span> 2</span><span> 3</span><span> 4</span></h2>
+            <h1>Let's get started! Type the word you'd like to design.</h1>
+            <input type="text" id="wordInput" />
+            <div class="messages"></div>
+            <a href="#step-2" class="next">I've picked my word. Now I am ready to design!</a>
+        </div>
+        <div id="step-2" class="step">
+            <h2 class="stepLabel"><span>1</span><span class="current"> 2</span><span> 3</span><span> 4</span></h2>
+            <h1>Now select the image you want for each letter by scrolling each letter up and down.</h1>
+            <div class="outer-center">
+                <div id="chooseImages" class="inner-center">
+                    <!--letters will go in here-->
+                </div>
+            </div>
+            <a href="#step-1" class="prev">I need to go back and choose a new word.</a>
+            <a href="#step-3" class="next">I've picked my images. Now I am ready to pick frame and print tones!</a>
+        </div>
+        <div id="step-3" class="step">
+            <h2 class="stepLabel"><span>1</span><span> 2</span><span class="current"> 3</span><span> 4</span></h2>
+            <h1>Now select your frame and Sepia/B&W by clicking the buttons below.</h1>
+            <div class="frameButtons">
+                <a class="frameChooser" href="#black">Black Frame</a>
+                <a class="frameChooser" href="#brown">Brown Frame</a>
+            </div>
+            <div class="outer-center">
+                <div class="shadow-one">
+                    <div class="corner-a black"></div>
+                    <div class="corner-b black"></div>
+                    <div class="shadow-two black">
+                        <div class="shadow-three black">
+                            <div class="shadow-four">
+                                <div id="chooseFrameAndTone" class="inner-center">
+                    <!--letters will go in here-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#step-2" class="prev">I need to go back and choose new images</a>
+            <a href="#step-4" class="next">I am ready to review my design!</a>
+        </div>
+        <div id="step-4" class="step">
+            <h2 class="stepLabel"><span>1</span><span> 2</span><span> 3</span><span class="current"> 4</span></h2>
+            <h1>Review your design below</h1>
+            <a href="#step-3" class="prev">I need to go back and change my frame or print color.</a>
+            <a href="#checkout" class="next">I am ready to purchase my design!</a>
+        </div>
+
+    </div>
+    <footer>
+
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts-->
+
+
+  <!--script> // Change UA-XXXXX-X to be your site's ID
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script-->
+
+
+  <!--[if lt IE 7 ]>
+    <script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>
