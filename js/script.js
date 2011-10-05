@@ -19,7 +19,7 @@ NL.global = (function($, NL){
         // TODO store the word in a cookie in case of problems 
         //store it in the var
         userWord = $('#wordInput').val();
-        userWord = userWord.toLowerCase();
+        userWord = userWord.toUpperCase();
         NL.design.numberOfLetters = userWord.length;
         NL.design.wordArray = userWord.split("");
         
@@ -40,10 +40,11 @@ NL.global = (function($, NL){
         //load the images
         $('#chooseImages').empty();
         $.each( NL.design.wordArray, function(key, value){
+			
             var html = '<div class="letter">';
             html += '<a href="#up" class="upArrow"></a>';
             html += '<div class="letterImg">';
-            html += '<img src="img/'+ value +'.jpg"/>';
+            html += '<img src="img/strips/'+ value +'-filmstrip-bw.jpg"/>';
             html += '</div>';
             html += '<a href="#down" class="downArrow"></a>';
             html += '</div>';

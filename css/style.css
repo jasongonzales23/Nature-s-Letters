@@ -161,7 +161,7 @@ h2.stepLabel {
 
 .letter {
     float: left;
-    margin: 0 8px;
+    margin: 0 3px;
 }
 
 .letterImg {
@@ -224,11 +224,11 @@ h2.stepLabel {
     top: 0;
     width: 100px;
     height: 100px;
-    background: url(../img/5-frame-black.png) right top no-repeat;
+    background: url(../img/10-frame-black.png) right top no-repeat;
 }
 
 .corner-a.brown {
-    background: url(../img/5-frame-brown.png) right top no-repeat;
+    background: url(../img/10-frame-brown.png) right top no-repeat;
 }
 
 .corner-b.black, .corner-b.brown {
@@ -237,33 +237,33 @@ h2.stepLabel {
     bottom: 0;
     width: 100px;
     height: 100px;
-    background: url(../img/5-frame-black.png) left bottom no-repeat;
+    background: url(../img/10-frame-black.png) left bottom no-repeat;
 }
 
 .corner-b.brown {
-    background: url(../img/5-frame-brown.png) left bottom no-repeat;    
+    background: url(../img/10-frame-brown.png) left bottom no-repeat;    
 }
 
 .shadow-two.black {
-    background: url(../img/5-frame-black.png) right bottom no-repeat;
+    background: url(../img/10-frame-black.png) right bottom no-repeat;
 }
 
 .shadow-two.brown {
-    background: url(../img/5-frame-brown.png) right bottom no-repeat;
+    background: url(../img/10-frame-brown.png) right bottom no-repeat;
 }
 
 .shadow-three.black {
     position: relative;
     left: -100px;
     top: -100px;
-    background: url(../img/5-frame-black.png) left top no-repeat;
+    background: url(../img/10-frame-black.png) left top no-repeat;
     }
 
 .shadow-three.brown {
     position: relative;
     left: -100px;
     top: -100px;
-    background: url(../img/5-frame-brown.png) left top no-repeat;
+    background: url(../img/10-frame-brown.png) left top no-repeat;
     }
 
 .shadow-four {
