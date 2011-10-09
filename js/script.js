@@ -21,6 +21,8 @@ NL.global = (function($, NL){
     }
     
     var loadWordInput = function(){
+        NL.design.marginArray = undefined;
+        $('#wordInput').val('');
         $('#wordInput').focus();
         $('#wordInput').keyup(function(event){
             var word = $('#wordInput').val();
