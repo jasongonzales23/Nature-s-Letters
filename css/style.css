@@ -71,6 +71,15 @@ td { vertical-align: top; }
     margin:0 auto;
 }
 
+.blanket {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    color:#000;
+    display:none;
+}
+
 .step {
     display:none;
 }
@@ -120,14 +129,22 @@ h2.stepLabel {
  Step 1
  ___________________*/
 #wordInput {
-    width:900px;
+    width: 500px;
     font-size:48px;
     padding:30px;
     text-align:center;
     text-transform:uppercase;
     font-weight:bold;
+    margin: 0 0 0 198px;
 }
 
+.msgArea {
+    float: left;
+    padding: 20px;
+    margin: 20px 0 0 0;
+    font-size: 18px;
+    color: #FF5000;
+}
 
 /*__________________
  Step 2
@@ -203,6 +220,7 @@ h2.stepLabel {
     position:relative;
     overflow:auto;
     float:none;
+    clear:both;
 }
 
 #step-3 #chooseFrameAndTone.inner-center {
@@ -271,6 +289,11 @@ h2.stepLabel {
     left: 50px;
     top: 50px;
     }
+
+.toneButtons {
+    float:right;
+}
+
 
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }

@@ -5,14 +5,45 @@ Jason Gonzales for Nature's Letters
 var NL= {};
 
 NL.design = {
-    numberOfLetters:0
-    
+    numberOfLetters:0,
+    marginArray:undefined,
+    marginLimitArray:0,
+    frameColor:'black',
+    tone:'bw',
+    wordArray:''    
 }
 
 NL.global = (function($, NL){
     var userWord;
     
-    function storeWord(){
+    var warnUser = function (msg) {
+        $('.msgArea').empty().append(msg);
+    }
+    
+    var loadWordInput = function(){
+        $('#wordInput').focus();
+        $('#wordInput').keyup(function(event){
+            var word = $('#wordInput').val();
+            var patt = /^[A-Za-z]+$/;
+            var result = patt.test(word);
+            if (!result && word.length > 0) {
+                warnUser('Sorry you can only enter letters');
+            }
+            else if ( word.length === 10 ) {
+                warnUser('You have 10 letters, that is the maximum!');
+            }
+            else{
+                $('.msgArea').empty();
+            }
+        });
+        $('.clear').click(function(){
+            $('#wordInput').val('');
+        });
+    }
+    
+    
+    
+    function storeWord(currentStep, destination){
         //check to make sure user has entered something
         //check for length of word range is 3 - 10
         //check for dirty words
@@ -22,10 +53,26 @@ NL.global = (function($, NL){
         userWord = userWord.toUpperCase();
         NL.design.numberOfLetters = userWord.length;
         NL.design.wordArray = userWord.split("");
+        var patt = /^[A-Za-z]+$/g;
+        var result = patt.test(userWord);
         
+        if(!result) {
+            warnUser('Sorry you can only enter letters, try again');
+            return;
+        }
+        
+        else if ( NL.design.numberOfLetters < 3 ) {
+            warnUser('Sorry, your word needs to be between 3 and 10 letters, try again');
+            loadWordInput();
+        }
+        else{
+            $('.msgArea').empty();
+            navigateToPrevNext(currentStep, destination);
+        }
     }
     
     function navigateToPrevNext(currentStep, destination){
+        $('.msgArea').empty();
         $('#'+ currentStep).hide();
         $(destination).show();
         destination = destination.substr(1);
@@ -36,11 +83,10 @@ NL.global = (function($, NL){
     function loadImageChooser(){
         //build the letter slots
         //figure out all the letter image properties like how many images there are etc
-        
+        $('.blanket').fadeTo(.60);
         //load the images
         $('#chooseImages').empty();
         $.each( NL.design.wordArray, function(key, value){
-			
             var html = '<div class="letter">';
             html += '<a href="#up" class="upArrow"></a>';
             html += '<div class="letterImg">';
@@ -51,11 +97,27 @@ NL.global = (function($, NL){
             $('#chooseImages').append(html);
         });
         
-        NL.global.getImageStatus.calculateMarginLimit();
-        NL.global.getImageStatus.margins();
-        
-        //need to be able to move this from step to step 
+        $('#chooseImages').imagesLoaded( function($imaages){
+            NL.global.getImageStatus.calculateMarginLimit();
+            NL.global.getImageStatus.margins();
+            $('.blanket').fadeOut();
+        });
     }
+    
+    var checkForImages = function(currentStep, destination){
+        if (destination === '#step-3'){
+            if ($.inArray( 0, NL.design.marginArray) > -1){
+            warnUser('You need to select an image for every letter by clicking the arrows');
+            }
+            else{
+            navigateToPrevNext(currentStep, destination);   
+            }
+        }
+        else{
+            navigateToPrevNext(currentStep, destination);   
+        }
+    };
+    
     
     function loadFrameAndToneChooser(){
         $('#chooseFrameAndTone').empty();
@@ -75,25 +137,63 @@ NL.global = (function($, NL){
         $('.frameButtons').delegate('.frameChooser', 'click', function(event){
             if ($(this).attr('href') === "#brown"){
                 $frame.removeClass('black').addClass('brown');
+                NL.design.frameColor = "brown";
             }
             if ($(this).attr('href') === "#black"){
                 $frame.removeClass('brown').addClass('black');
+                NL.design.frameColor = "black";
             }
         });
         
+    }
+    
+    function bindToneButtons(){
+        $('.toneButtons').delegate('.toneChooser', 'click', function(event){
+            if ($(this).attr('href') === "#blackAndWhite"){
+                if (NL.design.tone === "bw"){
+                    return;
+                }
+                else{
+                    $('.letter').each( function(index){
+                        var $currImg = $(this).find('img');
+                        var imgSrc = $currImg.attr('src');
+                        var newSrc = imgSrc.replace("filmstrip-s", "filmstrip-bw");
+                        $currImg.attr('src', newSrc);
+                    });
+                    NL.design.tone = "bw";
+                }
+                
+            }
+            if ($(this).attr('href') === "#sepia"){
+                if (NL.design.tone === "s"){
+                    return;
+                }
+                else{
+                    $('.letter').each( function(index){
+                        var $currImg = $(this).find('img');
+                        var imgSrc = $currImg.attr('src');
+                        var newSrc = imgSrc.replace("filmstrip-bw", "filmstrip-s");
+                        $currImg.attr('src', newSrc);
+                    });
+                }
+                NL.design.tone = "s";
+            }
+        });
     }
     
     function processDestination(destination) {
         switch(destination)
         {
             case 'step-1':
+                loadWordInput();
                 break;
             case 'step-2':
                 loadImageChooser();
-                bindFrameButtons();
                 break;
             case 'step-3':
                 loadFrameAndToneChooser();
+                bindFrameButtons();
+                bindToneButtons();
                 break;
         }
     }
@@ -117,7 +217,6 @@ NL.global = (function($, NL){
     // TODO, I think I can remove this
     var checkBounds = function ( $imgEl ) {
         var currMargin = parseInt($imgEl.css('margin-top'));
-        console.log(currMargin);
     }
     
     var getImageStatus = {
@@ -171,11 +270,10 @@ NL.global = (function($, NL){
         switch(currentStep)
         {
         case 'step-1':
-            storeWord();
-            navigateToPrevNext(currentStep, destination);
+            storeWord(currentStep, destination);
           break;
         case 'step-2':
-            navigateToPrevNext(currentStep, destination);
+            checkForImages(currentStep, destination);
           break;
         case 'step-3':
             navigateToPrevNext(currentStep, destination);
@@ -196,6 +294,7 @@ NL.global = (function($, NL){
             var currentStep = $parent.attr('id');
             processCurStep(currentStep, destination);
         },
+        loadWordInput:loadWordInput,
         advanceImg:advanceImg,
         checkBounds:checkBounds,
         setImageStatus:setImageStatus,
@@ -242,5 +341,6 @@ NL.init = (function($,NL){
 
 $(document).ready(function(){
     NL.init.setBindings();
+    NL.global.loadWordInput();
 });
 
