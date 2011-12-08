@@ -24,7 +24,7 @@
 
   <div id="container">
     <header>
-
+        <h1>Design Your Creation</h1>
     </header>
     <div id="main" role="main">
         <div id="step-1" class="active step">
@@ -80,8 +80,35 @@
         <div id="step-4" class="step">
             <h2 class="stepLabel"><span>1</span><span> 2</span><span> 3</span><span class="current"> 4</span></h2>
             <h1>Review your design below</h1>
+            <h2 id="theWord"></h2>
+            <form action=http://www.romancart.com/cart.asp method=post>
+                <input type=hidden name=storeid value=57404>
+                <input type=hidden name=quantity value=1>
+                <input type=hidden name=returnurl value="http://naturesletters.com">
+                <input type=hidden name=itemname value='Natures Letters Creation:'>
+                Your Creation with: <span class="numLetterVal"></span>
+                <select id="numLetters" name=itemname>
+                    <option value="3 Letters {70.00}">3 Letters ($70.00)</option>
+                    <option value="4 Letters {77.00}">4 Letters ($77.00)</option>
+                    <option value="5 Letters {84.00}">5 Letters ($84.00)</option>
+                    <option value="6 Letters {91.00}">6 Letters ($91.00)</option>
+                    <option value="7 Letters {98.00}">7 Letters ($98.00)</option>
+                    <option value="8 Letters {105.00}">8 Letters ($105.00)</option>
+                    <option value="9 Letters {112.00}">9 Letters ($112.00)</option>
+                    <option value="10 Letters {119.00}">10 Letters ($119.00)</option>
+                </select>
+                <p class="frameColor">
+                </p>
+                <input id="frameColor" type=hidden name=itemname2 value=''>
+                <p><span class="tone"></span> Images
+                </p>
+                <input id="tone" type=hidden name=itemname3 value=''>
+                <input id="pictureCode" type=hidden name=itemname4 value=''>
+                <p>
+                    <input type=submit value='Add to Basket'>
+                </p>
+            </form>
             <a href="#step-3" class="prev">I need to go back and change my frame or print color.</a>
-            <a href="#checkout" class="next">I am ready to purchase my design!</a>
         </div>
 
     </div>

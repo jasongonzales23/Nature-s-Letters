@@ -2,7 +2,37 @@
 Jason Gonzales for Nature's Letters
 */
 
-var NL= {};
+var NL= {} || NL;
+
+NL.letterMap = {
+    A: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8' ],
+    B: ['B1', 'B2', 'B3', 'B4'],
+    C: ['C1', 'C2', 'C3', 'C5', 'C6', 'C7', 'C8' ],
+    D: ['D1', 'D2', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'D11' ],
+    E: ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E9', 'E10', 'E11' ],
+    F: ['F1', 'F2', 'F4', 'F5', 'F7', 'F10'],
+    G: ['G1', 'G2', 'G4', 'G6', 'G7', 'G8', 'G9', 'G10', 'G11' ],
+    H: ['H1', 'H2', 'H3', 'H4', 'H5' ],
+    I: ['I1', 'I2', 'I3', 'I5', 'I8', 'I9' ],
+    J: ['J1', 'J2', 'J3', 'J4', 'J7', 'J8', 'J9' ],
+    K: ['K1', 'K2', 'K4', 'K5', 'K6' ],
+    L: ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13', 'L14' ],
+    M: ['M1', 'M2', 'M3', 'M4', 'M5', 'M7', 'M8' ],
+    N: ['N1', 'N2', 'N5', 'N6', 'N7', 'N8'],
+    O: ['O1', 'O3', 'O4', 'O5', 'O6', 'O7', 'O8', 'O9', 'O10', 'O11', 'O12', 'O13', 'O14', 'O15','O16' ],
+    P: ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'],
+    Q: ['Q1', 'Q2', 'Q4'],
+    R: ['R1', 'R2', 'R3', 'R4', 'R5', 'R6'],
+    S: ['S1', 'S2', 'S3', 'S5', 'S6', 'S7' ],
+    T: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T8', 'T9', 'T10', 'T11' ],
+    U: ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'U7' ],
+    V: ['V1', 'V2', 'V3', 'V4', 'V5', 'V6' ],
+    W: ['W1', 'W2', 'W3', 'W4', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12' ],
+    X: ['X1', 'X2', 'X3', 'X4'],
+    Y: ['Y1', 'Y2', 'Y3', 'Y4', 'Y5', 'Y6', 'Y7' ],
+    Z: ['Z2', 'Z3', 'Z4' ],
+}
+
 
 NL.design = {
     numberOfLetters:0,
@@ -183,6 +213,52 @@ NL.global = (function($, NL){
         });
     }
     
+    function calculateCartStuff(){
+        //console.log(NL.design.frameColor + NL.design.numberOfLetters + NL.design.tone + NL.design.wordArray);
+        //console.log(NL.design.marginArray)
+        var tone, frameColor, letterIndex
+        pictureCode = [];
+        for (i=0; i< NL.design.numberOfLetters; i++){
+            var letter = NL.design.wordArray[i];
+            var index = (NL.design.marginArray[i] / -120 ) - 1;
+            var thinger = 'NL.letterMap.' + letter + '[' + index + ']';
+            pictureCode.push(eval(thinger));
+        }
+        
+        //translate colors 
+        if(NL.design.tone === 's') {
+            tone = "Sepia"
+        }
+        if (NL.design.tone === 'bw') {
+            tone = "Black and White"
+        }
+        
+        if(NL.design.frameColor === 'black'){
+            frameColor = "Black Frame";
+        }
+        if(NL.design.frameColor === 'brown'){
+            frameColor = "Brown Frame";
+        }
+        
+        if(NL.design.numberOfLetters < 4 ) {
+            letterIndex = 0;
+        }
+        if(NL.design.numberOfLetters > 3 ){
+            letterIndex = NL.design.numberOfLetters - 3;
+        }
+        
+        $('#theWord').empty().text(NL.design.wordArray.join(""));
+        
+        $("#numLetters option").eq(letterIndex).attr('selected', 'selected');
+        var numLetterVal = $("#numLetters option").eq(letterIndex).text();
+        $('.numLetterVal').empty().text(numLetterVal);
+        $('#pictureCode').val(pictureCode);
+        $('#frameColor').val(frameColor);
+        $('.frameColor').empty().text(frameColor);
+        $('#tone').val(tone);
+        $('.tone').empty().text(tone);
+    }
+    
     function processDestination(destination) {
         switch(destination)
         {
@@ -196,6 +272,9 @@ NL.global = (function($, NL){
                 loadFrameAndToneChooser();
                 bindFrameButtons();
                 bindToneButtons();
+                break;
+            case 'step-4':
+                calculateCartStuff();
                 break;
         }
     }

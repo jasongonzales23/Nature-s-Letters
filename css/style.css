@@ -88,7 +88,7 @@ td { vertical-align: top; }
     display:block;
 }
 
-h1 {
+h1, #theWord {
     text-align:center;
     font-size:1.8em;
 }
@@ -111,19 +111,30 @@ h2.stepLabel {
 .prev {
     display:block;
     float:left;
-    border:3px solid #0000ff;
+    border:3px solid #506a39;
     padding:20px;
     margin:20px 0 0 0;
     clear:both;
+    background:#97B87A;
+    color:#000;
+    text-decoration:none;
 }
 
 .next {
     display:block;
     float:right;
-    border:3px solid #0000ff;
+    border:3px solid #506a39;
     padding:20px;
     margin:20px 0 0 0;
+    background:#97B87A;
+    color:#000;
+    text-decoration:none;
 }
+
+.next:visited, .prev:visited {
+   color:#000;
+}
+
 
 /*__________________
  Step 1
@@ -290,10 +301,45 @@ h2.stepLabel {
     top: 50px;
     }
 
-.toneButtons {
-    float:right;
+.frameButtons {
+    float:left;
 }
 
+.toneButtons {
+    float:right;
+    margin: 0 0 10px 0;
+}
+
+.frameChooser, .toneChooser {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    background: #97B87A;
+    padding: 10px;
+    margin: 10px;
+}
+
+.frameChooser:visited, .toneChooser:visited {
+    color:#000;
+}
+
+/*__________________
+ Step 4
+ ___________________*/
+#numLetters {
+    display:none;
+}
+
+#step-4 form {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 0 335px;
+}
+
+#step-4 form input {
+    padding:10px 20px;
+    width: 300px;
+}
 
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
