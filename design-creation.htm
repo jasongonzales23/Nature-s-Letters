@@ -1,28 +1,48 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "NL-main-template.dwt" -->
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- end CSS-->
-
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Create unique framed alphabet photography letter art gifts inspired by 
+nature. Nature's Letters features high quality Alphabet Photos of alphabet letters found only in nature. No 
+man-made objects are used in our letter pictures" />
+<meta name="keywords" content="alphabet letters, alphabet photography, letter art, letter photos, name art, 
+letter pictures, alphabet letter art" />
+<!-- #BeginEditable "doctitle" -->
+<title>Alphabet Photography|Nature's Letters|Gallery</title>
+<!-- #EndEditable -->
+<link rel="stylesheet" type="text/css" href="NL-main.css" />
+<link rel="stylesheet" href="css/style.css">
 </head>
+<body id="design">
+<!-- #BeginEditable "body" -->
+<!--[if lt IE 8]>
+<div id="IEroot">
+<![endif]-->
 
-<body>
+<div id="wrapper" style="left: 0px; top: 0px">
 
-  <div id="container">
+<div id="banner">
+	<img src="images/logo-banner-new.jpg" alt="Nature's Letters logo banner" width="900" height="153" />
+	<h1>Nature's Letters<br />Created by God - Photographed by Smith</h1>
+</div>
+
+<div id="navcontainer">
+	<ul id="navlist">
+		<li><a href="default.htm">Home</a></li>
+		<li class="highlight"><a href="design-creation.htm">Design Your Creation</a></li>
+		<li><a href="letters-A.htm">Letters</a></li>
+		<li><a href="gallery.htm">Gallery</a></li>
+		<li><a href="contact-faq.htm">Contact/FAQ</a></li>
+		<li><a href="place-order.htm">Place Your Order</a></li>
+		<li class="last-nav"><a href="shopping-bag.htm">Shopping Bag</a></li>
+	</ul>
+	<div class="clearer">&nbsp;</div>
+</div>
+
+<div id="main-content">
     <header>
         <h1>Design Your Creation</h1>
     </header>
@@ -32,7 +52,7 @@
             <h1>Let's get started! Type the word you'd like to design.</h1>
             <input type="text" id="wordInput" maxlength="10"/>
             <a href="#clear" class="clear">Reset Word</a>
-            <a href="#step-2" class="next">I've picked my word. Now I am ready to design! &gt;</a>
+            <a href="#step-2" class="next">I've picked my word. Now I am ready to design!</a>
             <div class="msgArea"></div>
             
         </div>
@@ -44,8 +64,8 @@
                     <!--letters will go in here-->
                 </div>
             </div>
-            <a href="#step-1" class="prev">&lt; I need to go back and choose a new word.</a>
-            <a href="#step-3" class="next">I've picked my images. Now I am ready to pick frame and print tones! &gt;</a>
+            <a href="#step-1" class="prev">I need to go back and choose a new word.</a>
+            <a href="#step-3" class="next">I've picked my images. Now I am ready to pick frame and print tones!</a>
             <div class="msgArea"></div>
         </div>
         <div id="step-3" class="step">
@@ -74,33 +94,18 @@
                     </div>
                 </div>
             </div>
-            <a href="#step-2" class="prev">&lt; I need to go back and choose new images</a>
-            <a href="#step-4" class="next">I am ready to review my design! &gt;</a>
+            <a href="#step-2" class="prev">I need to go back and choose new images</a>
+            <a href="#step-4" class="next">I am ready to review my design!</a>
         </div>
         <div id="step-4" class="step">
             <h2 class="stepLabel"><span>1</span><span> 2</span><span> 3</span><span class="current"> 4</span></h2>
-            <h1>Review your design below:</h1>
-            <div class="outer-center">
-                <div class="shadow-one">
-                    <div class="corner-a black"></div>
-                    <div class="corner-b black"></div>
-                    <div class="shadow-two black">
-                        <div class="shadow-three black">
-                            <div class="shadow-four">
-                                <div id="reviewDesign" class="inner-center">
-                                <!--letters will go in here-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1>Review your design below</h1>
             <h2 id="theWord"></h2>
             <form action=http://www.romancart.com/cart.asp method=post>
-                <input type=hidden name=storeid value=57404/>
-                <input type=hidden name=quantity value=1/>
-                <input type=hidden name=returnurl value="http://naturesletters.com"/>
-                <input type=hidden name=itemname value='Natures Letters Creation:'/>
+                <input type=hidden name=storeid value=57404>
+                <input type=hidden name=quantity value=1>
+                <input type=hidden name=returnurl value="http://naturesletters.com">
+                <input type=hidden name=itemname value='Natures Letters Creation:'>
                 Your Creation with: <span class="numLetterVal"></span>
                 <select id="numLetters" name=itemname>
                     <option value="3 Letters {70.00}">3 Letters ($70.00)</option>
@@ -115,46 +120,48 @@
                 <p class="frameColor">
                 </p>
                 <input id="frameColor" type=hidden name=itemname2 value=''>
-                <p class="imageTone"><span class="tone"></span> Images
+                <p><span class="tone"></span> Images
                 </p>
-                <input id="tone" type=hidden name=itemname3 value=''/>
-                <input id="pictureCode" type=hidden name=itemname4 value=''/>
+                <input id="tone" type=hidden name=itemname3 value=''>
+                <input id="pictureCode" type=hidden name=itemname4 value=''>
                 <p>
-                    <input type=submit value='Add to Basket'/>
+                    <input type=submit value='Add to Basket'>
                 </p>
             </form>
-            <a href="#step-3" class="prev">&lt; I need to go back and change my frame or print color.</a>
+            <a href="#step-3" class="prev">I need to go back and change my frame or print color.</a>
         </div>
 
     </div>
-    <footer>
+<!-- end of main-content div is below -->
+</div>
 
-    </footer>
-  </div> <!--! end of #container -->
+<!-- end of wrapper div is below -->
+</div>
 
+<!--[if lt IE 8]>
+</div>
+<![endif]-->
 
+<!-- #EndEditable -->
+<div id="footer">
+	<p>Website content and all letter photographs and framed letter art samples<br />
+	copyright &copy; 2010 John and Janis Smith. All rights reserved.<br />
+	Web site designed and built by Hyla Skudder Design &nbsp; &nbsp; <a href="http://www.hylaskudderdesign.com" target="_blank">www.HylaSkudderDesign.com</a></p>
+</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 
-
   <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
   <!-- end scripts-->
-
-
-  <!--script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script-->
-
-
   <!--[if lt IE 7 ]>
     <script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
   <div class="blanket"></div>
 </body>
+
+<!-- #EndTemplate -->
+
 </html>

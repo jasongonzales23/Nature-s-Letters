@@ -66,12 +66,25 @@ td { vertical-align: top; }
    Author:  Jason Gonzales
    ========================================================================== */
 
+
+#design #main-content {
+    padding:0 0 60px 0;
+}
+
+#main {
+    /*padding:20px;*/
+}
+
 #container{
     width:960px;
     margin:0 auto;
 }
 
-header h1 {
+header {
+    margin:16px 0 0 0;
+}
+
+header h1, #theWord {
     font-family: Georgia, Times, “Times New Roman”, serif;
     margin:0 0 0 30px;
     color:#506A39;
@@ -94,15 +107,26 @@ header h1 {
     display:block;
 }
 
-#main h1, #theWord {
-    text-align:center;
-    font-size:1.8em;
+#main {
+    font-family: Verdana, Geneva, sans-serif;
 }
 
-h2.stepLabel {
-    border-radius:30px;
-    background:#506a39;
-    padding:15px;
+#main h1, #theWord {
+    text-align:center;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+#theWord {
+    font-size:24px;
+    margin:8px 0;    
+}
+
+#main h2.stepLabel {
+    border-radius: 30px;
+    background: #506A39;
+    padding: 15px;
+    margin: 10px;
 }
 
 .stepLabel span {
@@ -114,27 +138,43 @@ h2.stepLabel {
     color:#fff;
 }
 
+/* override styles for within the site
+***************************************/
+#main-content a {
+color: black;
+font-weight: normal;
+}
+  
+  
+/* END override styles for within the site
+***************************************/
+
+
 .prev {
     display:block;
     float:left;
-    border:3px solid #506a39;
+    border:2px solid #97B87A;
     padding:20px;
-    margin:20px 0 0 0;
+    margin:20px 0 0 10px;
     clear:both;
-    background:#97B87A;
     color:#000;
     text-decoration:none;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
 }
 
 .next {
     display:block;
     float:right;
-    border:3px solid #506a39;
+    border:2px solid #97B87A;
     padding:20px;
-    margin:20px 0 0 0;
-    background:#97B87A;
+    margin:20px 10px 0 0;
     color:#000;
     text-decoration:none;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
 }
 
 .next:visited, .prev:visited {
@@ -152,7 +192,7 @@ h2.stepLabel {
     text-align:center;
     text-transform:uppercase;
     font-weight:bold;
-    margin: 0 0 0 198px;
+    margin: 0 0 0 139px;
 }
 
 .msgArea {
@@ -166,12 +206,14 @@ h2.stepLabel {
 .clear {
     display:block;
     float:right;
-    border:3px solid #506a39;
+    border:2px solid #97B87A;
     padding:20px;
-    margin:20px 0 0 0;
-    background:#97B87A;
+    margin:20px 10px 0 0;
     color:#000;
     text-decoration:none;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
 }
 
 .clear:visited{
@@ -236,14 +278,14 @@ h2.stepLabel {
  Step 3
  ___________________*/
 
-#step-3 .outer-center {
+#step-3 .outer-center, #step-4 .outer-center {
     position:relative;
     overflow:auto;
     float:none;
     clear:both;
 }
 
-#step-3 #chooseFrameAndTone.inner-center {
+#step-3 #chooseFrameAndTone.inner-center, #step-4 #reviewDesign.inner-center {
     overflow:auto;
     float:none;
     position:static;
@@ -319,13 +361,16 @@ h2.stepLabel {
     margin: 0 0 10px 0;
 }
 
-.frameChooser, .toneChooser {
+.frameChooser, .toneChooser, #main-content .frameChooser, #main-content .toneChooser  {
     color: black;
     text-decoration: none;
-    font-size: 18px;
-    background: #97B87A;
+    border:2px solid #97B87A;
     padding: 10px;
     margin: 10px;
+    font-weight:bold;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
 }
 
 .frameChooser:visited, .toneChooser:visited {
@@ -342,12 +387,20 @@ h2.stepLabel {
 #step-4 form {
     font-size: 18px;
     font-weight: bold;
-    margin: 0 0 0 335px;
+    margin: 0 0 0 275px;
 }
 
 #step-4 form input {
     padding:10px 20px;
     width: 300px;
+}
+
+#step-4 form p {
+    margin-left:0;
+}
+
+.frameColor, .imageTone {
+    font-weight:normal;
 }
 
 /* ==|== non-semantic helper classes ======================================== */

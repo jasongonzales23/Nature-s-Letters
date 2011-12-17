@@ -213,6 +213,18 @@ NL.global = (function($, NL){
         });
     }
     
+    function loadReviewDesign(){
+    $('#reviewDesign').empty();
+        $('#chooseImages').clone().children('.letter').unwrap().appendTo('#reviewDesign')
+        .each(function(){
+            $('.upArrow').remove();
+            $('.downArrow').remove();
+        });
+        
+        var $container = $('#step-4').find('.outer-center');
+        $container.css("left", ((960 - $('#step-4 .shadow-one').outerWidth()) / 2 ) +"px");
+    }
+
     function calculateCartStuff(){
         //console.log(NL.design.frameColor + NL.design.numberOfLetters + NL.design.tone + NL.design.wordArray);
         //console.log(NL.design.marginArray)
@@ -274,6 +286,7 @@ NL.global = (function($, NL){
                 bindToneButtons();
                 break;
             case 'step-4':
+                loadReviewDesign();
                 calculateCartStuff();
                 break;
         }
@@ -329,11 +342,13 @@ NL.global = (function($, NL){
             });
 
         },
-        calculateMarginLimit: function ( ) {
+        calculateMarginLimit: function () {
             NL.design.marginLimitArray = Array();
              $("#chooseImages").imagesLoaded(function(){
-                $('img').each(function(index, element){
+                $('.letterImg img').each(function(index, element){
+                    console.log(this);
                     var height = (($(this).height()) * -1) + 120;
+                    console.log(height);
                     NL.design.marginLimitArray.push(height);
                 });
             });
